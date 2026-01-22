@@ -6,7 +6,7 @@ import Image from "next/image";
 
 type LoginStep = "email" | "password" | "2fa" | "success";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api/office";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000/api";
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/login/initiate`, {
+      const response = await fetch(`${API_BASE_URL}/office/login/initiate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +67,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/login/password`, {
+      const response = await fetch(`${API_BASE_URL}/office/login/password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +119,7 @@ export default function Home() {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/2fa`, {
+      const response = await fetch(`${API_BASE_URL}/office/2fa`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
